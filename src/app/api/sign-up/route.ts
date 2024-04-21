@@ -41,7 +41,16 @@ export async function POST(request: NextRequest) {
     }
 
     // find user by email
-    const existingUserByEmail = await UserModel.findOne({ email });
+    const existingUserByEmail = await UserModel.findOne({
+      $or: [
+        {
+          username,
+        },
+        {
+          email,
+        },
+      ],
+    });
 
     const verifyCode = Math.floor(1_00_000 + Math.random() * 9_00_000).toString();
 
