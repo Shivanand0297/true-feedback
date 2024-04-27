@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       {
-        status: true,
+        success: true,
         message: "User registered Successfully, please veryfiy your email",
       },
       { status: 201 }
